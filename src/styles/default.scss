@@ -1,0 +1,24 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+body {
+  font-family: 'Roboto';
+  font-weight: 400;
+}
+
+a {
+  text-decoration: none;
+  padding: 12px 0;
+  margin: 0 12px;
+  color: inherit;
+
+  &.router-link-active {
+    font-weight: 500;
+  }
+}
