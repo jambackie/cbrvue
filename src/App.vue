@@ -4,18 +4,15 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
-import Navigation from "./components/navigation/Navigation.vue";
+import { onMounted } from "@vue/runtime-core";
+import { useStore } from "vuex";
+import Navigation from "./components/Navigation.vue";
 
 export default {
   components: { Navigation },
 
-  mounted() {
-    this.loadValute();
-  },
-
-  methods: {
-    ...mapActions(["loadValute"]),
+  setup() {
+    onMounted(() => useStore().dispatch("loadValute"));
   },
 };
 </script>
