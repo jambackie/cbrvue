@@ -1,4 +1,5 @@
 <template>
+  <Search />
   <div class="list">
     <CurrencyItem v-for="item in items" :key="item.ID" :item="item" />
   </div>
@@ -8,9 +9,10 @@
 import { computed } from "@vue/runtime-core";
 import { useStore } from "vuex";
 import CurrencyItem from "../components/CurrencyItem.vue";
+import Search from "@/components/Search.vue";
 
 export default {
-  components: { CurrencyItem },
+  components: { CurrencyItem, Search },
 
   setup() {
     const store = useStore();
