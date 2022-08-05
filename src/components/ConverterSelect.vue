@@ -9,6 +9,7 @@
 <script>
 import { computed, ref, watch } from "@vue/runtime-core";
 import { useStore } from "vuex";
+
 export default {
   props: {
     ind: {

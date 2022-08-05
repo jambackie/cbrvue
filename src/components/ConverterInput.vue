@@ -10,6 +10,7 @@ import { ref } from "@vue/reactivity";
 import { computed } from "@vue/runtime-core";
 import { useStore } from "vuex";
 import useDebounce from "@/use/useDebounce";
+
 export default {
   props: {
     ind: {
