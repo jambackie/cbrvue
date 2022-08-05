@@ -1,5 +1,8 @@
 # cbrvue
 
+## Demo
+https://jambackie.github.io/cbrvue/
+
 ## Project setup
 ```
 npm install
