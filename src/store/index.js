@@ -1,5 +1,6 @@
 import { createStore } from "vuex";
 import { listModule } from "./listModule";
+import { converterModule } from "./converterModule";
 
 export default createStore({
   state: {
@@ -61,5 +62,6 @@ export default createStore({
 
   modules: {
     list: listModule,
+    converter: converterModule,
   },
 });
