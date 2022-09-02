@@ -1,5 +1,5 @@
 export default async function () {
-  let code = ''
+  let code = null
   try {
     code = await fetch('http://ip-api.com/json')
     code = await code.json()
