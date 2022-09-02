@@ -43,8 +43,16 @@ export default {
       return `1 ${target.value.CharCode} = ${reverseRatio.value} ${nominal.value.CharCode}`
     })
     const label = props.ind === 0 ? leftLabel : rightLabel
-    const input = useDebounce(() => {
+    let prev
+    const input = useDebounce((event) => {
+      if (value.value === '') {
+        value.value = 0
+      }
+      if (prev === 0) {
+        event.target.value = value.value
+      }
       store.commit('converter/changeInputValue', value.value)
+      prev = value.value
     }, 500)
 
     return { value, input, label }
