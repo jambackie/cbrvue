@@ -1,9 +1,9 @@
 export default function useDebounce(func, timeout) {
-  let timer;
+  let timer
   return (...args) => {
-    clearTimeout(timer);
+    clearTimeout(timer)
     timer = setTimeout(() => {
-      func.apply(this, args);
-    }, timeout);
-  };
+      func.apply(this, args)
+    }, timeout)
+  }
 }

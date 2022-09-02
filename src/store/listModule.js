@@ -8,7 +8,7 @@ export const listModule = {
 
   getters: {
     valuteList(state, _, rootState) {
-      return state.filter ? state.filteredList : rootState.valute;
+      return state.filter ? state.filteredList : rootState.valute
     },
   },
 
@@ -19,18 +19,18 @@ export const listModule = {
           (el) =>
             el.Name.toLowerCase().includes(str) ||
             el.CharCode.toLowerCase().startsWith(str)
-        );
-        state.filter = true;
+        )
+        state.filter = true
       } else {
-        state.filteredList = [];
-        state.filter = false;
+        state.filteredList = []
+        state.filter = false
       }
     },
   },
 
   actions: {
     filterList({ commit, rootState }, str) {
-      commit("filterList", [rootState.valute, str.toLowerCase()]);
+      commit('filterList', [rootState.valute, str.toLowerCase()])
     },
   },
-};
+}

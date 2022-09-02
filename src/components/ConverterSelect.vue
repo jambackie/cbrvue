@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import { computed, ref, watch } from "@vue/runtime-core";
-import { useStore } from "vuex";
+import { computed, ref, watch } from '@vue/runtime-core'
+import { useStore } from 'vuex'
 
 export default {
   props: {
@@ -19,27 +19,27 @@ export default {
   },
 
   setup(props) {
-    const store = useStore();
-    const second = props.ind === 0 ? 1 : 0;
-    const pair = computed(() => store.state.converter.pair);
+    const store = useStore()
+    const second = props.ind === 0 ? 1 : 0
+    const pair = computed(() => store.state.converter.pair)
     const options = computed(() =>
-      store.getters["converter/options"].filter(
+      store.getters['converter/options'].filter(
         (el) => el.code !== pair.value[second]
       )
-    );
-    const value = computed(() => pair.value[props.ind]);
-    const select = ref(`${value.value}`);
+    )
+    const value = computed(() => pair.value[props.ind])
+    const select = ref(`${value.value}`)
     function change() {
-      store.commit("converter/changePair", [props.ind, select.value]);
+      store.commit('converter/changePair', [props.ind, select.value])
     }
     watch(
       () => value.value,
       () => {
-        select.value = value.value;
+        select.value = value.value
       }
-    );
+    )
 
-    return { options, select, change };
+    return { options, select, change }
   },
-};
+}
 </script>

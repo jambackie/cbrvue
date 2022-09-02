@@ -13,18 +13,18 @@
 </template>
 
 <script>
-import ConverterSelect from "../components/ConverterSelect.vue";
-import ConverterInput from "../components/ConverterInput.vue";
-import { useStore } from "vuex";
+import ConverterSelect from '../components/ConverterSelect.vue'
+import ConverterInput from '../components/ConverterInput.vue'
+import { useStore } from 'vuex'
 
 export default {
   components: { ConverterSelect, ConverterInput },
   setup() {
-    const store = useStore();
+    const store = useStore()
     function swap() {
-      store.commit("converter/swapPair");
+      store.commit('converter/swapPair')
     }
-    return { swap };
+    return { swap }
   },
-};
+}
 </script>

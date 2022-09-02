@@ -6,10 +6,10 @@
 </template>
 
 <script>
-import { ref } from "@vue/reactivity";
-import { computed } from "@vue/runtime-core";
-import { useStore } from "vuex";
-import useDebounce from "@/use/useDebounce";
+import { ref } from '@vue/reactivity'
+import { computed } from '@vue/runtime-core'
+import { useStore } from 'vuex'
+import useDebounce from '@/use/useDebounce'
 
 export default {
   props: {
@@ -20,34 +20,34 @@ export default {
   },
 
   setup(props) {
-    const store = useStore();
-    const inputValue = computed(() => store.state.converter.inputValue);
-    const nominal = computed(() => store.getters["converter/nominal"]);
-    const target = computed(() => store.getters["converter/target"]);
+    const store = useStore()
+    const inputValue = computed(() => store.state.converter.inputValue)
+    const nominal = computed(() => store.getters['converter/nominal'])
+    const target = computed(() => store.getters['converter/target'])
     const ratio = computed(() =>
       (nominal.value.value / target.value.value).toFixed(4)
-    );
+    )
     const reverseRatio = computed(() =>
       (target.value.value / nominal.value.value).toFixed(4)
-    );
+    )
     const result = computed(() => {
       return inputValue.value > 0
         ? (ratio.value * inputValue.value).toFixed(4)
-        : 0;
-    });
-    const value = props.ind === 0 ? ref(inputValue.value) : ref(result);
+        : 0
+    })
+    const value = props.ind === 0 ? ref(inputValue.value) : ref(result)
     const leftLabel = computed(() => {
-      return `1 ${nominal.value.CharCode} = ${ratio.value} ${target.value.CharCode}`;
-    });
+      return `1 ${nominal.value.CharCode} = ${ratio.value} ${target.value.CharCode}`
+    })
     const rightLabel = computed(() => {
-      return `1 ${target.value.CharCode} = ${reverseRatio.value} ${nominal.value.CharCode}`;
-    });
-    const label = props.ind === 0 ? leftLabel : rightLabel;
+      return `1 ${target.value.CharCode} = ${reverseRatio.value} ${nominal.value.CharCode}`
+    })
+    const label = props.ind === 0 ? leftLabel : rightLabel
     const input = useDebounce(() => {
-      store.commit("converter/changeInputValue", value.value);
-    }, 500);
+      store.commit('converter/changeInputValue', value.value)
+    }, 500)
 
-    return { value, input, label };
+    return { value, input, label }
   },
-};
+}
 </script>
