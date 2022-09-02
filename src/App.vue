@@ -6,7 +6,7 @@
 <script>
 import { onMounted } from '@vue/runtime-core'
 import { useStore } from 'vuex'
-import NavigationLinks from './components/NavigationLinks.vue'
+import NavigationLinks from '@/components/NavigationLinks.vue'
 
 export default {
   components: { NavigationLinks },

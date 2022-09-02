@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import ListPage from '../views/ListPage.vue'
-import ConverterPage from '../views/ConverterPage.vue'
+import ListPage from '@/views/ListPage.vue'
+import ConverterPage from '@/views/ConverterPage.vue'
 
 const routes = [
   {

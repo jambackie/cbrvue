@@ -1,8 +1,10 @@
+import baseCode from '@/models/baseCode'
+
 export const converterModule = {
   namespaced: true,
 
   state: {
-    pair: ['USD', 'RUR'],
+    pair: [],
     rur: {
       CharCode: 'RUR',
       Name: 'Росийский рубль',
@@ -48,11 +50,24 @@ export const converterModule = {
     changeInputValue(state, num) {
       state.inputValue = num
     },
+    setPair(state, arr) {
+      state.pair = arr
+    },
     swapPair(state) {
       const arr = [...state.pair]
       state.pair = arr.reverse()
     },
   },
 
-  actions: {},
+  actions: {
+    async initPair({ commit, getters }) {
+      const getBase = (str) => list.find((el) => el.startsWith(str))
+      const baseObj = await baseCode()
+      const list = [...getters.options].map((option) => option.code)
+      const base = getBase(baseObj.code) || getBase(baseObj.lang) || 'EUR'
+      const str = base === 'EUR' ? 'USD' : 'EUR'
+      const arr = [base, str]
+      commit('setPair', arr)
+    },
+  },
 }

@@ -8,7 +8,7 @@
 <script>
 import { computed } from '@vue/runtime-core'
 import { useStore } from 'vuex'
-import CurrencyItem from '../components/CurrencyItem.vue'
+import CurrencyItem from '@/components/CurrencyItem.vue'
 import ListSearch from '@/components/ListSearch.vue'
 
 export default {

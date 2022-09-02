@@ -13,14 +13,16 @@
 </template>
 
 <script>
-import ConverterSelect from '../components/ConverterSelect.vue'
-import ConverterInput from '../components/ConverterInput.vue'
+import ConverterSelect from '@/components/ConverterSelect.vue'
+import ConverterInput from '@/components/ConverterInput.vue'
 import { useStore } from 'vuex'
+import { onMounted } from '@vue/runtime-core'
 
 export default {
   components: { ConverterSelect, ConverterInput },
   setup() {
     const store = useStore()
+    onMounted(() => store.dispatch('converter/initPair'))
     function swap() {
       store.commit('converter/swapPair')
     }
